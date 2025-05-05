@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    .image-container {
+      display: inline-block;
+      margin: 10px;
+      text-align: center;
+    }
+    .image-container img {
+      max-width: 200px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .image-container p {
+      font-size: 14px;
+      color: #555;
+      max-width: 220px;
+      word-wrap: break-word;
+    }
+  </style>
+</head>
+<body>
+
+<div id="certifications-container"></div>
+
+<script>
+  const imageFolder = "./images/";  // absolute path from root
+  const imageList = [
+    "Internship at CK Hospital, Erode.jpeg",
+    "Program of 'Creators of Metaverse'.jpeg",
+    "Statical Data Analysis with R.jpeg",
+    "Workshop on 'Research Paper Reading'.jpeg",
+  ];
+
+  const container = document.getElementById('certifications-container');
+
+  imageList.forEach(imageName => {
+    const imagePath = imageFolder + imageName;
+
+    const imageContainer = document.createElement('div');
+    imageContainer.className = 'image-container';
+
+    const img = document.createElement('img');
+    img.src = imagePath;
+    img.alt = imageName;
+
+    const caption = document.createElement('p');
+    caption.textContent = imageName;
+
+    imageContainer.appendChild(img);
+    imageContainer.appendChild(caption);
+    container.appendChild(imageContainer);
+  });
+</script>
+
+</body>
+</html>

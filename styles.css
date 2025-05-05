@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    font-family: "Montserrat", sans-serif;
+}
+
+:root {
+    --fgcolor: green;
+    --light-fg-color: rgba(100, 245, 100, 0.1);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 0.2rem solid var(--fgcolor);
+    height: 93vh;
+    width: 30%;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: white;
+    font-size: 2vw;
+}
+
+#profile-pic {
+    border-radius: 50%;
+    width: 80%;
+    border: 2px solid var(--fgcolor);
+}
+
+.header button {
+    background-color: transparent;
+    font-size: 1vw;
+    padding: 0.9rem;
+    margin: 0.3rem;
+    color: var(--fgcolor);
+    border: 2px solid var(--fgcolor);
+    border-radius: 1rem;
+}
+
+.header button:hover {
+    background-color: var(--fgcolor);
+    color: white;
+}
+
+.module {
+    border: 0.2rem solid var(--fgcolor);
+    height: 96.5vh;
+    width: 90%;
+    border-radius: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    background-color: white;
+}
+
+body {
+    display: flex;
+    background-color: var(--light-fg-color);
+}
+
+#name {
+    color: black;
+} 
+#firstname {
+    color: var(--fgcolor);
+}
+.schools {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem;
+    margin-top: 0;
+}
+.school {
+    width: 30%;
+    border: 1px solid var(--fgcolor);
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 0.51rem;
+    margin: 0.54rem;
+    background-color: var(--light-fg-color);
+}
+.school * {
+    margin: 0.3rem;
+}
+.school img {
+    border-radius: 50%;
+    width: 80%;
+}
+.school h1 {
+    font-size: 1rem;
+}
+#bio {
+    font-size: 1.6rem;
+    margin: 1.5rem;
+    text-align: justify;
+    margin-bottom: 0.3rem;
+}
+.contacts {
+    padding: 1rem;
+    text-align: center;
+    margin-top: 17%;
+    border-bottom: none;
+    border-radius: 1rem;
+    font-size: 1rem;
+}
+.contacts a {
+    text-decoration: none;
+    color: black;
+}
+i {
+    color: var(--fgcolor);
+    margin-right: 0.41rem;
+}
