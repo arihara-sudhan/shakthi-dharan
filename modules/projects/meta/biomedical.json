@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Finger-based Pulse and Health Monitoring System",
+    "about": "Utilizes IR light to non-invasively measure SpO2 and blood pressure. Uses TCRT1000 IR sensor with MCU and ESP32 for processing and wireless transmission.",
+    "img_url": "https://static.vecteezy.com/system/resources/previews/005/369/613/non_2x/pulse-logo-medical-care-logo-vector.jpg"
+  },
+  {
+    "name": "Artificial Heart Prototype",
+    "about": "Simulates the pumping action of a human heart for biomedical demonstrations using Arduino Nano, DC pump, IRF549N MOSFET, and Schottky diode.",
+    "img_url": "https://static.vecteezy.com/system/resources/previews/015/871/117/non_2x/artificial-heart-icon-isometric-robot-suit-vector.jpg"
+  }
+]

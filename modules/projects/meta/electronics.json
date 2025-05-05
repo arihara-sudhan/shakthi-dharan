@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Comparative Circuit",
+    "about": "Designed and simulated comparator circuits, converted them to PCB layouts, and successfully fabricated the hardware.",
+    "img_url": "https://img.freepik.com/premium-vector/circuit-logo-template-vector-illustration-icon-design_610945-7841.jpg"
+  },
+  {
+    "name": "Overcurrent Protection System",
+    "about": "Circuit-level protection using MOSFET shutdown when current exceeds threshold, ensuring device safety from surges.",
+    "img_url": "https://img.freepik.com/premium-vector/vector-design-overload-protection-icon-style_822882-236703.jpg"
+  }
+]
