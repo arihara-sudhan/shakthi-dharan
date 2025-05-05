@@ -1,8 +1,8 @@
 [
   {
-    "name": "Web Chess Game",
+    "name": "Chess",
     "about": "A two-player online chess game built using HTML, CSS, and JavaScript. Features real-time move validation, drag-and-drop interface, and piece highlighting.",
-    "img_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Chessboard480.svg/1024px-Chessboard480.svg.png",
-    "access_url": "https://yourdomain.com/chess-game"
+    "img_url": "https://img.freepik.com/premium-vector/chess-logo-business-abstract-concept-icon-black-game-figure-sign-vector-flat-style_754658-579.jpg",
+    "access_url": "https://arihara-sudhan.github.io/shakthi-dharan/chess"
   }
 ]
