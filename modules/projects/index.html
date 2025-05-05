@@ -2,35 +2,109 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Modular Website</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Projects of Shakthi Dharan</title>
+  <style>
+    button {
+      margin: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+    .project-card {
+      padding: 15px;
+      margin: 1rem;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      background-color: var(--light-fg-color);
+    }
+    .project-card img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    .project-info {
+      max-width: 500px;
+    }
+    .buttons {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+    .buttons button {
+      background-color: var(--fgcolor);
+      border-radius: 1rem;
+      color: white;
+      border: none;
+    }
+    .buttons button:hover {
+      background-color: white;
+      color: var(--fgcolor);
+      border: 1px solid var(--fgcolor);
+    }
+  </style>
 </head>
 <body>
-  <nav>
-    <button onclick="loadPage('home')">Home</button>
-    <button onclick="loadPage('about')">About</button>
-    <button onclick="loadPage('projects')">Projects</button>
-  </nav>
-  <main id="main-content"></main>
+  <center class="buttons">
+    <button id="bio-btn" onclick="loadProjects('biomedical')">Biomedical / HealthTech</button>
+    <button onclick="loadProjects('games')">Games</button>
+    <button onclick="loadProjects('electronics')">Electronics / Embedded Systems</button>
+    <button onclick="loadProjects('nanoelectronics')">Nanoelectronics / Conceptual Design</button>
+  </center>
+  <div id="projects-container"></div>
 
   <script>
-    async function loadPage(page) {
-      const main = document.getElementById("main-content");
-      const res = await fetch(`modules/${page}/index.html`);
-      main.innerHTML = await res.text();
+    async function loadProjects(category) {
+      const container = document.getElementById("projects-container");
 
-      // Automatically trigger biomedical projects load for Projects page
-      if (page === "projects") {
-        // Wait a tiny bit to ensure DOM is ready
-        await new Promise(r => setTimeout(r, 50));
-        const bioBtn = document.getElementById("bio-btn");
-        if (bioBtn) bioBtn.click();
+      try {
+        const response = await fetch(`./modules/projects/meta/${category}.json`);
+        if (!response.ok) {
+          throw new Error(`Failed to load JSON: ${response.status} ${response.statusText}`);
+        }
+
+        const projects = await response.json();
+        container.innerHTML = "";
+
+        if (!projects || !Array.isArray(projects)) {
+          container.innerHTML = "<p>No projects found or invalid data format.</p>";
+          return;
+        }
+
+        projects.forEach(project => {
+          const card = document.createElement("div");
+          card.className = "project-card";
+
+          const imgTag = project.img_url
+            ? `<img src="${project.img_url}" alt="${project.name}" />`
+            : '<div style="width: 100px; height: 100px; background-color: #ddd; border-radius: 6px; display: flex; justify-content: center; align-items: center; color: #666;">No Image</div>';
+
+          card.innerHTML = `
+            ${imgTag}
+            <div class="project-info">
+              <h3>${project.name}</h3>
+              <p>${project.about}</p>
+            </div>
+          `;
+
+          if (project.access_url) {
+            card.style.cursor = "pointer";
+            card.addEventListener("click", () => {
+              window.location.href = project.access_url;
+            });
+          }
+
+          container.appendChild(card);
+        });
+
+      } catch (error) {
+        container.innerHTML = `<p style="color: red;">Error loading projects: ${error.message}</p>`;
+        console.error("Error loading projects:", error);
       }
     }
 
-    // Load home page initially
-    loadPage('home');
+    document.addEventListener('DOMContentLoaded', function () {
+      loadProjects("biomedical");
+    });
   </script>
 </body>
 </html>
