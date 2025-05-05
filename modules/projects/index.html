@@ -47,6 +47,7 @@
   <center class="buttons">
     <button onclick="loadProjects('biomedical')">Biomedical Instrumentation</button>
     <button onclick="loadProjects('ai')">AI</button>
+    <button onclick="loadProjects('games')">Games</button>
     <button onclick="loadProjects('biomaterials')">Biomaterials</button>
   </center>
   <div id="projects-container"></div>
@@ -72,10 +73,11 @@
         projects.forEach(project => {
           const card = document.createElement("div");
           card.className = "project-card";
+
           const imgTag = project.img_url
             ? `<img src="${project.img_url}" alt="${project.name}" />`
             : '<div style="width: 100px; height: 100px; background-color: #ddd; border-radius: 6px; display: flex; justify-content: center; align-items: center; color: #666;">No Image</div>';
-  
+
           card.innerHTML = `
             ${imgTag}
             <div class="project-info">
@@ -83,8 +85,17 @@
               <p>${project.about}</p>
             </div>
           `;
+
+          if (project.access_url) {
+            card.style.cursor = "pointer";
+            card.addEventListener("click", () => {
+              window.location.href = project.access_url;
+            });
+          }
+
           container.appendChild(card);
         });
+
   
       } catch (error) {
         container.innerHTML = `<p style="color: red;">Error loading projects: ${error.message}</p>`;
